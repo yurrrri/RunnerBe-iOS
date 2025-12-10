@@ -95,9 +95,9 @@ UIScrollView에 View, UICollectionView를 넣었을 때 UICollectionView가 탭�
     - UIScrollView가 스크롤하는 contentSize가 명확히 정해져있지 않아 스크롤이 되지 않았던 것으로 짐작되었습니다.
   - 처음 마이페이지를 클릭했을 때 ‘작성한 글’을 불러오므로, ‘작성한 글’을 API에서 불러오는 시점에
   UICollectionView의 높이를 ‘작성한 글’의 UICollectionView의 contentSize의 임의의 근사값 높이로 세팅한 다음, <br/>
-<img width="372" height="234" alt="image" src="https://github.com/user-attachments/assets/462c0ea7-961d-4b4f-8d44-5485601ddfd1" /> <br/>
+  <img width="372" height="234" alt="image" src="https://github.com/user-attachments/assets/462c0ea7-961d-4b4f-8d44-5485601ddfd1" /> <br/>
   - ‘작성한 글’과 ‘참여 러닝’ 버튼을 클릭하여 API로부터 내용이 load 될 때마다 각 컬렉션뷰의 높이를 자기자신의 contentSize로 업데이트하여 해결했습니다. <br/>
-  <img width="515" height="156" alt="image" src="https://github.com/user-attachments/assets/f48a0876-253b-4f09-b74b-ddee24b74acc" />
+  <img width="515" height="156" alt="image" src="https://github.com/user-attachments/assets/f48a0876-253b-4f09-b74b-ddee24b74acc" /> <br/>
 
 ## 주요 화면 설명
 **1) 회원가입**
@@ -113,15 +113,13 @@ UIScrollView에 View, UICollectionView를 넣었을 때 UICollectionView가 탭�
 <img width="200" src="https://github.com/runner-be/RunnerBe-iOS/assets/37764504/c87588f3-58f4-4410-818b-85d210a1e8c0" /> <img width="200" src="https://github.com/runner-be/RunnerBe-iOS/assets/37764504/4a932f5d-810d-47c2-ad35-afc85a2d43cb" />
  
 **4) 러닝 모임 관리 및 현황 확인**
-- 러닝 모임 주최자는 러닝 참여자의 출석을 관리할 수 있으며, 참여자는 출석 여부를 확인할 수 있습니다.
-
+- 러닝 모임 주최자는 러닝 참여자의 출석을 관리할 수 있으며, 참여자는 출석 여부를 확인할 수 있습니다. <br/>
 <img width="200" src="https://github.com/user-attachments/assets/eb7f4f1c-e858-4616-bb9c-909d4551d704" />
 <img width="200" src="https://github.com/user-attachments/assets/e052a4e5-fdee-448a-9b55-4ab28fed3c86" /> 
 <img width="200" src="https://github.com/runner-be/RunnerBe-iOS/assets/37764504/7a2e641e-27c1-41de-a70a-9fe8ae9077b1" /> 
 
 **5) 러닝 로그**
-- 달린 후 일기와 같은 주관적, 객관적 정보를 남기는 로그를 작성하고, 모임 구성원들과 스탬프를 주고받을 수 있습니다.
-
+- 달린 후 일기와 같은 주관적, 객관적 정보를 남기는 로그를 작성하고, 모임 구성원들과 스탬프를 주고받을 수 있습니다. <br/>
 <img width="200" src="https://github.com/user-attachments/assets/b9278544-f8b8-4b96-ab50-30b61baf7533" />
 <img width="200" src="https://github.com/user-attachments/assets/a62b45cf-7532-438f-aae6-bca2d438c33c" />
 <img width="200" src="https://github.com/user-attachments/assets/9d1cc98a-7eb1-4d89-a08f-dd5d1f87328b" />
