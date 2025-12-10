@@ -23,7 +23,8 @@
   -   UI: UIKit, 코드 방식(SnapKit)
   -   비동기 처리 : RxSwift, RxCocoa
   -   네트워킹  : Moya
-  - 이미지 처리: Kingfisher
+  -   이미지 처리: Kingfisher
+  -   푸시 알림 : Firebase
   -   협업: Slack, Figma, Zeplin
     
 ## Architecture
