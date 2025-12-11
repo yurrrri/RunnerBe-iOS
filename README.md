@@ -67,8 +67,7 @@ ViewModel이 네트워크 요청, Keychain 접근, 비즈니스 로직, UI 바�
 
 **2. 피드 UI에서, 수많은 게시물들을 효율적으로 로드하기 위해 스크롤마다 일정량의 게시물을 로드하는 로직 구현 경험 (무한 스크롤) <br/>**
 **3. 유저 피드백에 기반한 개선사항을 반영, 배포하여 유지보수 경험** <br/>
-**4. 코드 기반 UI 개발, 커스텀 collectionview, 푸시 알림, MVVM + RxSwift, RxCocoa, RxDataSource 를 활용한 비동기, 데이터 바인딩 등 개발 경험**
-
+**4. 코드 기반 UI 개발, 커스텀 collectionview, 푸시 알림, MVVM + RxSwift, RxCocoa, RxDataSource 를 활용한 비동기, 데이터 바인딩 등 다양한 개발 경험**
 
 ## Trouble Shooting
 
