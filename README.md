@@ -45,48 +45,49 @@
 
 ## Experience
 **1. Clean Architecture를 적용하여 MVVM 아키텍처 개선**
-- **리팩토링 전 아키텍처**
+- 리팩토링 전 아키텍처
 <img width="700" src="https://github.com/user-attachments/assets/90562df4-e2db-4cf5-ab48-f8e7b02cd262"/> <br/>
 ViewModel이 네트워크 요청, Keychain 접근, 비즈니스 로직, UI 바인딩 등 모든 처리를 담당해
 코드가 복잡하고, 유지보수가 어려운 문제가 있었습니다.
 
-- **Clean Architecture를 선택한 이유**
+- Clean Architecture를 선택한 이유
 
 1) MVI는 상태 관리 중심, VIPER는 화면 레벨 책임 분리에 초점이 있어 ViewModel의 로직을 분리하는 의도에 적합하지 않다고 판단했습니다.
 2) 반면 Clean Architecture는 도메인 로직을 Domain, Data, Presentaiton Layer로 분리해 ViewModel이 화면 상태 관리 역할에만 집중하도록 만들 수 있어, Massive ViewModel 문제를 해결하고자 하는 의도에 적합한 구조라고 판단했습니다.
 
-- **리팩토링 후 아키텍처**
+- 리팩토링 후 아키텍처
 <img width="700"  alt="image" src="https://github.com/user-attachments/assets/221fb418-35f3-4c06-ab65-2ff80d50f9d2" /> <br/>
-  - **목표:** ViewModel의 책임은 오직 UI 상태 관리에 집중시키고, 
+  - 목표: ViewModel의 책임은 오직 UI 상태 관리에 집중시키고, 
 비즈니스 로직과 데이터 접근 로직을 분리하여 유지보수성을 높이는 것이 목표였습니다.
-  - **구현 과정:**
-    1. **계층 분리**: Presentation Layer(View/ViewModel), Domain Layer(UseCase, Entity), Data Layer(Repository, Service)로 계층을 명확히 분리했습니다.
-    2. **UseCase 도입**: ViewModel이 직접 데이터에 접근하는 대신, UseCase를 통해 비즈니스 로직을 처리하도록 구조를 개선했습니다.
-    3. **의존성 역전 적용**: UseCase는 구체적인 Repository 대신 추상화된 Repository Protocol에 의존하도록 설계했습니다. 이를 통해 실제 데이터 제공자(API, Firebase, Keychain 등)가 변경되더라도 UseCase에 영향이 없도록 개선했습니다.
-    4. **ViewModel 리팩토링**: ViewModel 내부에서서 UseCase 호출과 UI 바인딩 로직을 분리함으로써, ViewModel이 UI 상태 관리에만 집중할 수 있도록 강화했습니다.
+  - 구현 과정:
+    1. 계층 분리: Presentation Layer(View/ViewModel), Domain Layer(UseCase, Entity), Data Layer(Repository, Service)로 계층을 명확히 분리했습니다.
+    2. UseCase 도입: ViewModel이 직접 데이터에 접근하는 대신, UseCase를 통해 비즈니스 로직을 처리하도록 구조를 개선했습니다.
+    3. 의존성 역전 적용: UseCase는 구체적인 Repository 대신 추상화된 Repository Protocol에 의존하도록 설계했습니다. 이를 통해 실제 데이터 제공자(API, Firebase, Keychain 등)가 변경되더라도 UseCase에 영향이 없도록 개선했습니다.
+    4. ViewModel 리팩토링: ViewModel 내부에서서 UseCase 호출과 UI 바인딩 로직을 분리함으로써, ViewModel이 UI 상태 관리에만 집중할 수 있도록 강화했습니다.
 
-**2. 피드 UI에서, 수많은 게시물들을 효율적으로 로드하기 위해 스크롤마다 일정량의 게시물을 로드하는 로직 구현 경험 (무한 스크롤) <br/>**
-**3. 유저 피드백에 기반한 개선사항을 반영, 배포하여 유지보수 경험** <br/>
-**4. 코드 기반 UI 개발, 커스텀 collectionview, 푸시 알림, MVVM + RxSwift, RxCocoa, RxDataSource 를 활용한 비동기, 데이터 바인딩 등 다양한 개발 경험**
+**2. 피드 UI에서, 수많은 게시물들을 효율적으로 로드하기 위해 스크롤마다 일정량의 게시물을 로드하는 로직 구현 경험 (무한 스크롤)** <br/>
+**3. 코드 기반 UI 개발, 커스텀 collectionview, 푸시 알림, MVVM + RxSwift, RxCocoa, RxDataSource 를 활용한 비동기, 데이터 바인딩 등 다양한 개발 경험** <br/>
+**4. 지도, 위치 기반 서비스 개발 경험** <br/>
+**5. 유저 피드백에 기반한 개선사항을 반영, 배포하여 유지보수 경험** <br/>
 
 ## Trouble Shooting
 
 **1. RxSwift 중복 이벤트 발생 문제 해소**
-- **문제** <br/>
+- 문제 <br/>
 UICollectionView cell의 버튼을 누르면 간헐적으로 화면 전환이 여러번 발생하는 문제가 있었습니다.
 
-- **해결 과정** <br/>
+- 해결 과정 <br/>
   - 버튼 클릭 이벤트는 RxSwift를 통해 바인딩되어 있었고, 구독 해제 시점을 ViewController의 DisposeBag에 의존하고 있었습니다.
   - 하지만 UICollectionView 셀이 재사용되는 특성상, 셀이 사라져도 이전 구독이 유지되어 이전 셀의 버튼 이벤트가 남아있는 상태에서 중복 이벤트가 발생하는 것이 원인이었습니다. <br/>
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/5f2852bd-3432-4f5b-9c65-1cb3d19c2278" /> <br/>
   - 셀 내부에 DisposeBag을 생성하고, prepareForReuse()에서 해당 DisposeBag을 초기화하여 재사용 이전에 구독이 해제되도록 수정했습니다.
   - 추가로, 버튼 클릭 이벤트의 구독 역시 ViewController가 아닌, 셀 내부 DisposeBag에 바인딩되도록 변경하여 중복 이벤트 문제를 해결했습니다.
 
- **2. UIScrollView에 View, UICollectionView를 넣었을 때 리스트가 끝까지 스크롤되지 않는 문제 해소**
-- **문제** <br/>
+**2. UIScrollView에 View, UICollectionView를 넣었을 때 리스트가 끝까지 스크롤되지 않는 문제 해소**
+- 문제 <br/>
 UIScrollView에 View, UICollectionView를 넣었을 때 UICollectionView가 탭바 밑으로 보이지 않고, 스크롤뷰 전체가 하단으로 스크롤되지 않는 이슈가 있었습니다.
    
-- **해결 과정** <br/>
+- 해결 과정 <br/>
   - https://developer.apple.com/documentation/uikit/uiscrollview
   - 공식문서에 따르면, 스크롤뷰는 컨텐츠뷰의 크기에 맞춰서 스크롤되기 때문에 컨텐츠사이즈가 명확해야한다고 나와있습니다.
   - 이를 토대로 원인을 살펴보면
